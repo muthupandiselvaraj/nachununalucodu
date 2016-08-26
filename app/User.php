@@ -4,7 +4,7 @@ namespace App;
 
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 
 class User extends Model {
@@ -18,8 +18,8 @@ class User extends Model {
         'auth',
         'password',
         'email',
-        'deleted_at'
+        'is_deleted'
     ];
 
-    protected $hidden = [ 'auth','password','deleted_at' ];
+    protected $hidden = [ 'auth','password','is_deleted' ];
 }
