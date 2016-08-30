@@ -21,5 +21,5 @@ class User extends Model {
         'is_deleted'
     ];
 
-    protected $hidden = [ 'auth','password','is_deleted' ];
+    protected $hidden = [ 'auth','password' ];
 }

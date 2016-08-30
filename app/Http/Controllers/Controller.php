@@ -25,6 +25,27 @@ class Controller extends BaseController
        
        
     }
+    public function validateAdminUser ($userId) {
+        $userData =  User::select('id','name','email','role')->find($userId); 
+        if(empty($userData)) { 
+           $message['status']= 2001;
+           $message['data']=$userId;
+           $message['message']= 'unauthorized access';
+           
+            return $this->errorHandler($message);       
+        }
+        if($userData['role']!="Admin") { 
+           $message['status']= 2002;
+           $message['data']=$userI;
+           $message['message']= 'You are not having the permission to create team';
+           
+           return $this->errorHandler($message);
+        
+        } else {
+            return $userData;
+        }
+    }
+    
     
     
     

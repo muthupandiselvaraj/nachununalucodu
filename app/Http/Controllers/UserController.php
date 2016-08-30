@@ -67,19 +67,20 @@ class UserController extends Controller
             $success['auth'] = $auth;
             $success['message'] = 'successfully user has been created';
            
-			return $this->errorHandler($success);
+	    return $this->errorHandler($success);
         }
     }
 
     public function viewProfile(Request $request, $id)
     {
        $userRole = $this->authenticateUser($request->user_name, $request->auth);
-       $user = User::find($id)->toArray(); 
+       $user = User::find($id)->toArray();
        $UserFormFields = array('name', 'email', 'role');
       
        $userData = array();
        $message['status']= '1000';
        $message['message']= 'success';
+       
        
        if($userRole[0]['id'] != $id || $user['is_deleted'] == 1)  {
            $message['code']= 1001;           

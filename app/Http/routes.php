@@ -23,3 +23,9 @@ $app->post('v1/user', 'UserController@create');
 $app->get('v1/user/{id}', 'UserController@viewProfile');
 $app->put('v1/user/{id}', 'UserController@editProfile');
 $app->delete('v1/user/{id}', 'UserController@deleteProfile');
+
+$app->get('v1/team', 'TeamController@create');
+
+$app->get('v1/team_member/{id}', 'Team_MemberController@create');
+
+
